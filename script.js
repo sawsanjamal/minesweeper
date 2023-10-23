@@ -9,7 +9,7 @@ import {
   checkWin,
 } from "./minesweeper.js";
 const BOARD_SIZE = 10;
-const NUMBER_OF_MINES = 3;
+const NUMBER_OF_MINES = 10;
 const minesLeftText = document.querySelector("[data-mine-count]");
 // 1. Populate the board with tiles and mines
 const board = createBoard(BOARD_SIZE, NUMBER_OF_MINES);
@@ -61,7 +61,7 @@ function checkGameEnd() {
     messageText.textContent = "You lose";
     board.forEach((row) => {
       row.forEach((tile) => {
-        if (tile.status === TILE_STATUSES.MARKED) markedTile(tile);
+        if (tile.status === TILE_STATUSES.MARKED) markTile(tile);
         if (tile.mine) revealTile(board, tile);
       });
     });
